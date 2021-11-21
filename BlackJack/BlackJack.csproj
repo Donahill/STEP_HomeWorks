@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AFFE6792-F2EF-4F4C-B4E6-53B9A68A0079}</ProjectGuid>
+    <ProjectGuid>{FB1869D3-DAAA-45E9-8E5C-2C6BEC512CDC}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ComplexDigit</RootNamespace>
-    <AssemblyName>ComplexDigit</AssemblyName>
+    <RootNamespace>BlackJack</RootNamespace>
+    <AssemblyName>BlackJack</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Complex.cs" />
+    <Compile Include="Casino.cs" />
+    <Compile Include="Card.cs" />
+    <Compile Include="Deck.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

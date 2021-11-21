@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AFFE6792-F2EF-4F4C-B4E6-53B9A68A0079}</ProjectGuid>
+    <ProjectGuid>{CE627BDE-0532-491D-A891-255796ECDBA5}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ComplexDigit</RootNamespace>
-    <AssemblyName>ComplexDigit</AssemblyName>
+    <RootNamespace>AbstractShapes</RootNamespace>
+    <AssemblyName>AbstractShapes</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,12 +43,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Complex.cs" />
+    <Compile Include="Shapes\BlueShapes\BlueEllipse.cs" />
+    <Compile Include="Shapes\BlueShapes\BlueRectangle.cs" />
+    <Compile Include="Factory\BlueShapeFactory.cs" />
+    <Compile Include="Shapes\BlueShapes\BlueTriangle.cs" />
+    <Compile Include="Shapes\Ellipse.cs" />
+    <Compile Include="Shapes\GreenShapes\GreenEllipse.cs" />
+    <Compile Include="Shapes\GreenShapes\GreenRectangle.cs" />
+    <Compile Include="Factory\GreenShapeFactory.cs" />
+    <Compile Include="Shapes\GreenShapes\GreenTriangle.cs" />
+    <Compile Include="Shapes\Abstract\IDrawable.cs" />
+    <Compile Include="Shapes\Abstract\IShape.cs" />
+    <Compile Include="Factory\Abstract\IShapeFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shapes\Rectangle.cs" />
+    <Compile Include="Shapes\RedShapes\RedEllipse.cs" />
+    <Compile Include="Shapes\RedShapes\RedRectangle.cs" />
+    <Compile Include="Factory\RedShapeFactory.cs" />
+    <Compile Include="Shapes\RedShapes\RedTriangle.cs" />
+    <Compile Include="Shapes\Abstract\Shape.cs" />
+    <Compile Include="Factory\Abstract\ShapeFactory.cs" />
+    <Compile Include="Singletone.cs" />
+    <Compile Include="Shapes\Triangle.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
