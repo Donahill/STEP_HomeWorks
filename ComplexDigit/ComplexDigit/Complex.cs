@@ -20,17 +20,22 @@ namespace ComplexDigit
 
 		public static Complex operator -(Complex a, Complex b)
 		{
-			return Complex(a.m_re - b.m_re, a.m_im - b.m_im);
+			return new Complex(a.m_re - b.m_re, a.m_im - b.m_im);
 		}
 
 		public static Complex operator *(Complex a, Complex b)
 		{
-			return Complex(a.m_re * b.m_re - a.m_im * b.m_im, a.m_re * b.m_im - a.m_im * b.m_re);
+			return new Complex(a.m_re * b.m_re - a.m_im * b.m_im, a.m_re * b.m_im - a.m_im * b.m_re);
 		}
 
 		public static Complex operator /(Complex a, Complex b)
 		{
-			return Complex((a.m_re * b.m_re + a.m_im * b.m_im) / (a.m_im * a.m_im + b.m_im * b.m_im), (a.m_im * b.m_re - a.m_re * b.m_im) / (b.m_re * b.m_re + b.m_im * b.m_im));
+			return new Complex((a.m_re * b.m_re + a.m_im * b.m_im) / (a.m_im * a.m_im + b.m_im * b.m_im), (a.m_im * b.m_re - a.m_re * b.m_im) / (b.m_re * b.m_re + b.m_im * b.m_im));
 		}
-	}
+
+        public override string ToString()
+        {
+            return $"{m_re}+{m_im}i";
+        }
+    }
 }
