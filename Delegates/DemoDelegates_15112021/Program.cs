@@ -14,10 +14,17 @@ namespace DemoDelegates_15112021
     delegate void MyDelegate(int a, int b);
     delegate bool CompareDelegate(int x, int y);
     delegate float AriphmeticDelegate(float a, float b);
-    class Program { 
+
+
+    class Program {
+        
         static void MyMethod(int x, int y)
         {
             Console.WriteLine(x + y);
+        }
+        static float noll(float a, float b)
+        {
+            return 0;
         }
 
         static float add (float a, float b)
@@ -37,22 +44,6 @@ namespace DemoDelegates_15112021
             return a / b;
         }
 
-        static void DemoSort(int[] mas, CompareDelegate d)
-        {
-            int size = mas.Length;
-            while(--size > 0)
-            {
-                for(int i=0; i<size; ++i)
-                {
-                    if(d(mas[i], mas[i + 1]))
-                    {
-                        int tmp = mas[i];
-                        mas[i] = mas[i + 1];
-                        mas[i + 1] = tmp;
-                    }
-                }
-            }
-        }
         static bool func(int a, int b)
         {
             return a > b;
@@ -62,28 +53,31 @@ namespace DemoDelegates_15112021
             Thread.CurrentThread.CurrentCulture = new CultureInfo("en-us");
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-us");
 
-            int[] mas = { 3, 1, 5, 3, 8, 9, 4, 5, 6, 7, 1, 2, 0, 5 };
-
-            DemoSort(mas, ( x, y ) => { return x > y; } );
-
-            foreach(var x in mas)
-            {
-                Console.Write($"{x}; ");
-            }
-            Console.WriteLine();
-            Console.ReadKey();
-
-
-            AriphmeticDelegate[] ariphmetics = new AriphmeticDelegate[] { add, sub, mul, div };
+            AriphmeticDelegate[] ariphmetics = new AriphmeticDelegate[] {noll, add, sub, mul, div };
 
             float a = 100, b = 200;
             int i = 2;
-            
-            float res = ariphmetics[i](a, b);
-
-
-            MyDelegate deleg = MyMethod;
-            deleg(10, 25);
+            do
+            {
+                Console.WriteLine();
+                Console.WriteLine("Введите первое число:  ");
+                a = (float)Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Введите второе число:  ");
+                b = (float)Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Выберите арифметическое действие между введёнными числами:  ");
+                Console.WriteLine("1: +;  ");
+                Console.WriteLine("2: -;  ");
+                Console.WriteLine("3: *;  ");
+                Console.WriteLine("4: /;  ");
+                Console.WriteLine("Или 0 для отмены");
+                i = Convert.ToInt32(Console.ReadLine());
+                float res = ariphmetics[(i)](a, b);
+                Console.WriteLine("Результат:");
+                Console.WriteLine(res);
+                Console.WriteLine("Чтобы продолжить нажмите любую клавишу");
+                Console.ReadKey();
+                Console.Clear();
+            } while (i != 0);
         }
     }
 }
