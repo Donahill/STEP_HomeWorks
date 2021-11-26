@@ -9,8 +9,10 @@ namespace FileManager
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
+            Console.WriteLine("Это простейший файловый менеджер, введите Help, если не знаете что делать");
             string name;
             bool end = true;
             do
