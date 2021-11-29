@@ -9,15 +9,34 @@ namespace FileManager
 {
     class Program
     {
-        
         static void Main(string[] args)
         {
+            
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
+
+            string[] drives = Directory.GetLogicalDrives();
+            
+
+            foreach (string sss in drives)
+            {
+                Console.Write($"{ sss.TrimEnd(Path.DirectorySeparatorChar)}  ");
+            }
+            Console.WriteLine();
+            Console.WriteLine();
             Console.WriteLine("Это простейший файловый менеджер, введите Help, если не знаете что делать");
             string name;
             bool end = true;
             do
             {
                 name = Console.ReadLine();
+                foreach (string sss in Directory.GetLogicalDrives())
+                {
+                    Console.WriteLine($"{ sss.TrimEnd(Path.DirectorySeparatorChar)}  ");
+                }
+
+                Console.WriteLine();
+                Console.WriteLine();
 
                 switch (name)
                 {
