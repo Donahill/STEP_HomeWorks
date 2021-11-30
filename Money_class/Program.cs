@@ -57,6 +57,23 @@ namespace Money_class
             return new Money(r, Math.Abs(k));
         }
 
+        public static Money operator *(Money m1, int _x)
+        {
+            int k = (m1.HrivnaUAH < 0 ? -100 - m1.Kopiyok : m1.Kopiyok)*_x;
+            int delta = k / 100;
+            k %= 100;
+            int r = m1.HrivnaUAH*_x + delta;
+            return new Money(r, Math.Abs(k));
+        }
+
+        public static Money operator /(Money m1, int _y)
+        {
+            int k = (m1.HrivnaUAH < 0 ? -100 - m1.Kopiyok : m1.Kopiyok)/ _y+ (100 * (m1.HrivnaUAH % _y))/_y;
+            int delta = k / 100;
+            k %= 100;
+            int r = m1.HrivnaUAH/ _y + delta;
+            return new Money(r, Math.Abs(k));
+        }
 
         public override bool Equals(object obj)
             => Equals(obj as Money);
@@ -90,6 +107,17 @@ namespace Money_class
             Money first_raznost_of_third_and_fourth = third_number - fourth_number;
             Money second_raznost_of_third_and_fourth = fourth_number - third_number;
             Console.WriteLine($"{third_number} {fourth_number} Сумма: {summa_of_third_and_fourth} Первая разность: {first_raznost_of_third_and_fourth} Вторая разность: {second_raznost_of_third_and_fourth}");
+
+            var fifth_number = new Money(9, 78);
+            int x=3;
+            Money mult = fifth_number*x;
+            Console.WriteLine($"{fifth_number} * {x} Произведение: {mult}");
+
+            var six_number = new Money(11, 17);
+            int y = 5;
+            Money div = six_number / y;
+            Console.WriteLine($"{six_number} / {y} Деление: {div}");
+
 
             Console.WriteLine((Money)null == null);
 
